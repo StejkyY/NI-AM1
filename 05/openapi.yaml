@@ -1,0 +1,655 @@
+openapi: 3.0.3
+info:
+  title: AM1 - Homework 5
+  version: 1.0.0
+tags:
+  - name: country
+  - name: location
+  - name: tour
+  - name: customer
+  
+paths:
+  /country:
+    post:
+      tags:
+        - country
+      summary: Add new country
+      description: Add new country
+      operationId: postCountry
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Country'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+          links:
+            Self:
+              $ref: '#/components/links/PostCountry'
+            GetCountry:
+              $ref: '#/components/links/GetCountry'
+        '400':
+          description: Bad request
+    get:
+      tags:
+        - country
+      summary: Get list of all countries
+      description: Get list of all countries
+      operationId: getCountries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+          links:
+            Self:
+              $ref: '#/components/links/GetCountries'
+            GetCountry:
+              $ref: '#/components/links/GetCountry'
+            PostCountry:
+              $ref: '#/components/links/PostCountry'
+        '400':
+          description: Bad request
+          
+  /country/{id}:
+    get:
+      tags:
+        - country
+      summary: Get country by id
+      description: Get country by id
+      operationId: getCountry
+      parameters:
+        - name: id
+          in: path
+          description: Country ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Country'  
+          links:
+            Self:
+              $ref: '#/components/links/GetCountry'
+            Next:
+              $ref: '#/components/links/GetCountry'
+            Update:
+              $ref: '#/components/links/UpdateCountry'
+            Delete:
+              $ref: '#/components/links/DeleteCountry'
+        '400':
+          description: Bad request
+    put:
+      tags:
+        - country
+      summary: Update country by id
+      description: Update country by id
+      operationId: updateCountry
+      parameters:
+        - name: id
+          in: path
+          description: Country ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Country'  
+          links:
+            Self:
+              $ref: '#/components/links/UpdateCountry'
+            GetCountry:
+              $ref: '#/components/links/GetCountry'
+        '400':
+          description: Bad request
+    delete:
+      tags:
+        - country
+      summary: Delete country by id
+      description: Delete country by id
+      operationId: deleteCountry
+      parameters:
+        - name: id
+          in: path
+          description: Country ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          links:
+            GetCountry:
+              $ref: '#/components/links/GetCountry'
+        '400':
+          description: Bad request
+  
+  /location:
+    post:
+      tags:
+        - location
+      summary: Add new location
+      description: Add new location
+      operationId: postLocation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Location'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+          links:
+            Self:
+              $ref: '#/components/links/PostLocation'
+            GetLocation:
+              $ref: '#/components/links/GetLocation'
+        '400':
+          description: Bad request
+    get:
+      tags:
+        - location
+      summary: Get list of all locations
+      description: Get list of all loastions
+      operationId: getLocations
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Location'  
+          links:
+            Self:
+              $ref: '#/components/links/GetLocations'
+            GetLocation:
+              $ref: '#/components/links/GetLocation'
+            PostLocation:
+              $ref: '#/components/links/PostLocation'
+        '400':
+          description: Bad request
+          
+  /location/{id}:
+    get:
+      tags:
+        - location
+      summary: Get location by id
+      description: Get location by id
+      operationId: getLocation
+      parameters:
+        - name: id
+          in: path
+          description: Location ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Location'  
+          links:
+            Self:
+              $ref: '#/components/links/GetLocation'
+            Next:
+              $ref: '#/components/links/GetLocation'
+            Update:
+              $ref: '#/components/links/UpdateLocation'
+            Delete:
+              $ref: '#/components/links/DeleteLocation'
+        '400':
+          description: Bad request
+    put:
+      tags:
+        - location
+      summary: Update location by id
+      description: Update location by id
+      operationId: updateLocation
+      parameters:
+        - name: id
+          in: path
+          description: Location ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Location'  
+          links:
+            Self:
+              $ref: '#/components/links/UpdateLocation'
+            GetLocation:
+              $ref: '#/components/links/GetLocation'
+        '400':
+          description: Bad request
+    delete:
+      tags:
+        - location
+      summary: Delete location by id
+      description: Delete location by id
+      operationId: deleteLocation
+      parameters:
+        - name: id
+          in: path
+          description: Location ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          links:
+            GetLocation:
+              $ref: '#/components/links/GetLocation'
+        '400':
+          description: Bad request
+  
+  /tour:
+    post:
+      tags:
+        - tour
+      summary: Add new tour
+      description: Add new tour
+      operationId: postTour
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tour'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tour'
+          links:
+            Self:
+              $ref: '#/components/links/PostTour'
+            GetLocation:
+              $ref: '#/components/links/GetTour'
+        '400':
+          description: Bad request
+    get:
+      tags:
+        - tour
+      summary: Get list of all tours
+      description: Get list of all tours
+      operationId: getTours
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tour'  
+          links:
+            Self:
+              $ref: '#/components/links/GetTours'
+            GetTour:
+              $ref: '#/components/links/GetTour'
+            PostTour:
+              $ref: '#/components/links/PostTour'
+        '400':
+          description: Bad request
+          
+  /tour/{id}:
+    get:
+      tags:
+        - tour
+      summary: Get tour by id
+      description: Get tour by id
+      operationId: getTour
+      parameters:
+        - name: id
+          in: path
+          description: Tour ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Tour'  
+          links:
+            Self:
+              $ref: '#/components/links/GetTour'
+            Next:
+              $ref: '#/components/links/GetTour'
+            Update:
+              $ref: '#/components/links/UpdateTour'
+            Delete:
+              $ref: '#/components/links/DeleteTour'
+        '400':
+          description: Bad request
+    put:
+      tags:
+        - tour
+      summary: Update tour by id
+      description: Update tour by id
+      operationId: updateTour
+      parameters:
+        - name: id
+          in: path
+          description: Tour ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Tour'  
+          links:
+            Self:
+              $ref: '#/components/links/UpdateTour'
+            GetTour:
+              $ref: '#/components/links/GetTour'
+        '400':
+          description: Bad request
+    delete:
+      tags:
+        - tour
+      summary: Delete tour by id
+      description: Delete tour by id
+      operationId: deleteTour
+      parameters:
+        - name: id
+          in: path
+          description: Tour ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          links:
+            GetTour:
+              $ref: '#/components/links/GetTour'
+        '400':
+          description: Bad request
+          
+  /customer:
+    post:
+      tags:
+        - customer
+      summary: Add new customer
+      description: Add new customer
+      operationId: postCustomer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          links:
+            Self:
+              $ref: '#/components/links/PostCustomer'
+            GetCustomer:
+              $ref: '#/components/links/GetCustomer'
+        '400':
+          description: Bad request
+    get:
+      tags:
+        - customer
+      summary: Get list of all customers
+      description: Get list of all customers
+      operationId: getCustomers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'   
+          links:
+            Self:
+              $ref: '#/components/links/GetCustomers'
+            GetCustomer:
+              $ref: '#/components/links/GetCustomer'
+            PostCustomer:
+              $ref: '#/components/links/PostCustomer'
+        '400':
+          description: Bad request
+          
+  /customer/{id}:
+    get:
+      tags:
+        - customer
+      summary: Get customer by id
+      description: Get customer id
+      operationId: getCustomer
+      parameters:
+        - name: id
+          in: path
+          description: Customer ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Customer'  
+          links:
+            Self:
+              $ref: '#/components/links/GetCustomer'
+            Next:
+              $ref: '#/components/links/GetCustomer'
+            Update:
+              $ref: '#/components/links/UpdateCustomer'
+            Delete:
+              $ref: '#/components/links/DeleteCustomer'
+        '400':
+          description: Bad request
+    put:
+      tags:
+        - customer
+      summary: Update customer by id
+      description: Update customer by id
+      operationId: updateCustomer
+      parameters:
+        - name: id
+          in: path
+          description: Customer ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Customer'  
+          links:
+            Self:
+              $ref: '#/components/links/UpdateCustomer'
+            GetCustomer:
+              $ref: '#/components/links/GetCustomer'
+        '400':
+          description: Bad request
+    delete:
+      tags:
+        - customer
+      summary: Delete customer by id
+      description: Delete customer by id
+      operationId: deleteCustomer
+      parameters:
+        - name: id
+          in: path
+          description: Customer ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          links:
+            GetCustomer:
+              $ref: '#/components/links/GetCustomer'
+        '400':
+          description: Bad request
+  
+components:
+    schemas:
+      Country:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+      Location:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          country:
+            $ref: '#/components/schemas/Country'
+      Tour:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          location:
+            $ref: '#/components/schemas/Location'
+          customers:
+            items:
+              $ref: '#/components/schemas/Customer'
+            type: array
+      Customer:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+  
+    links:
+      PostCountry:
+        operationId: postCountry
+      GetCountries:
+        operationId: getCountries
+      GetCountry:
+        operationId: getCountry
+        parameters:
+          countryId: '$response.body#/id'
+      UpdateCountry:
+        operationId: putCountry
+        parameters:
+          countryId: '$response.body#/id'
+      DeleteCountry:
+        operationId: deleteCountry
+        parameters:
+          countryId: '$response.body#/id'
+  
+      PostLocation:
+        operationId: postLocation
+      GetLocations:
+        operationId: getLocations
+      GetLocation:
+        operationId: getLocation
+        parameters:
+          locationId: '$response.body#/id'
+      UpdateLocation:
+        operationId: putLocation
+        parameters:
+          locationId: '$response.body#/id'
+      DeleteLocation:
+        operationId: deleteLocation
+        parameters:
+          locationId: '$response.body#/id'
+      
+      PostTour:
+        operationId: postTour
+      GetTours:
+        operationId: getTours
+      GetTour:
+        operationId: getTour
+        parameters:
+          tourId: '$response.body#/id'
+      UpdateTour:
+        operationId: putTour
+        parameters:
+          tourId: '$response.body#/id'
+      DeleteTour:
+        operationId: deleteTour
+        parameters:
+          tourId: '$response.body#/id'
+      
+      PostCustomer:
+        operationId: postCustomer
+      GetCustomers:
+        operationId: getCustomers
+      GetCustomer:
+        operationId: getCustomer
+        parameters:
+          customerId: '$response.body#/id'
+      UpdateCustomer:
+        operationId: putCustomer
+        parameters:
+          customerId: '$response.body#/id'
+      DeleteCustomer:
+        operationId: deleteCustomer
+        parameters:
+          customerId: '$response.body#/id'
+        
+
+servers:
+  - url: 'http://t-a.org'
+    variables: {}

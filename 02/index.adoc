@@ -1,0 +1,50 @@
+TELNET: +
+ +
+GET /NI-AM1-ApplicationProtocols/httpTelnet1 HTTP/1.1 +
+Host: 147.32.233.18 +
+Accept: text/html +
+User-Agent: fit-telnet +
+Accept-Charset: UTF-8 +
+Accept-Language: en-US +
+ +
+HTTP/1.1 200 OK +
+Server: Apache-Coyote/1.1 +
+Content-Type: text/html;charset=UTF-8 +
+Content-Length: 3 +
+Date: Sat, 08 Oct 2022 13:49:58 GMT +
+ +
+OK +
+ +
+ +
+POST /NI-AM1-ApplicationProtocols/httpTelnet2 HTTP/1.1 +
+Host: 147.32.233.18 +
+Content-Type: application/x-www-form-urlencoded +
+Referer: mi-mdw +
+Content-Length: 8 +
+ +
+data=fit +
+HTTP/1.1 200 OK +
+Server: Apache-Coyote/1.1 +
+Content-Type: text/html;charset=UTF-8 +
+Content-Length: 3 +
+Date: Sat, 08 Oct 2022 13:59:25 GMT +
+ +
+OK +
+ +
+ +
+CURL: +
+ +
+curl  http://147.32.233.18:8888/NI-AM1-ApplicationProtocols/protocol/welcome +
+curl -H "Accept: text/plain" -X GET http://147.32.233.18:8888/NI-AM1-ApplicationProtocols/protocol/get?name=asking +
+curl -H "Accept: text/plain" -H "Accept-Language: en-US" -X POST http://147.32.233.18:8888/NI-AM1-ApplicationProtocols/protocol/post?name=continues +
+curl -H "Accept: text/html" -e "trilogy" http://147.32.233.18:8888/NI-AM1-ApplicationProtocols/protocol/referer +
+curl -H "Accept-Language: en-US" -A "andy" http://147.32.233.18:8888/NI-AM1-ApplicationProtocols/protocol/useragent +
+curl -b name=undefinable http://147.32.233.18:8888/NI-AM1-ApplicationProtocols/protocol/cookie +
+curl -H "Accept: text/html" -u "why:lie" http://147.32.233.18:8888/NI-AM1-ApplicationProtocols/protocol/auth +
+ +
+OK +
+Your final result is: kem +
+
+
+
+

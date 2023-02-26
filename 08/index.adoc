@@ -1,0 +1,2 @@
+Ve složce results jsou screenshoty komunikace mezi všemi 4 apliakcemi. +
+Každá aplikace má svou složku dle jejího názvu.

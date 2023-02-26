@@ -1,0 +1,79 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="task_3"
+           targetNamespace="task_3" elementFormDefault="qualified">
+
+    <xs:element name="getBookingsRequest">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookingsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="booking" type="tns:booking"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteBookingRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteBookingResponse">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addBookingRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="booking" type="tns:booking"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addBookingResponse">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateBookingRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="booking" type="tns:booking"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateBookingResponse">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="booking">
+        <xs:sequence>
+            <xs:element name="passengerName" type="xs:string"/>
+            <xs:element name="departureDate" type="xs:dateTime"/>
+            <xs:element name="arrivalDate" type="xs:dateTime"/>
+            <xs:element name="departureAirport" type="tns:airport"/>
+            <xs:element name="arrivalAirport" type="tns:airport"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="airport">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Prague"/>
+            <xs:enumeration value="Berlin"/>
+            <xs:enumeration value="Vienna"/>
+            <xs:enumeration value="Warsaw"/>
+            <xs:enumeration value="Bratislava"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

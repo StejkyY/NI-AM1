@@ -1,0 +1,23 @@
+Aplikace umožňuje asynchronní odebrání zájezdu z databáze tak, že se tento zájezd vloží do seznamu zájezdů k odebrání, +
+který si může klient prohlédnout a po 10 vteřinách se zájezd smaže. Pokud během tohoto časového okénka klient odebrání +
+zruší, pak zájezd smazán nebude. +
+ +
+Aplikace poskytuje následující služby: +
+ +
+Výpis všech zájezdů, GET /tour +
+Zpět: List<Tour>, 200 OK +
+ +
+Výpis konkrétního zájezdu, GET /tour/{id} +
+Zpět: Tour, 200 OK +
+ +
+Výpis všech zájezdů, které čekají na smazání, GET /tour/waiting +
+Zpět: List<Tour>, 200 OK +
+ +
+Vložení zájezdu, POST /tour +
+Zpět: 201 +
+ +
+Smazání zájezdu, DELETE /tour/{id} +
+Zpět: 200 OK +
+ +
+Zrušení smazání zájezdu, PUT /tour/cancel/{id} +
+Zpět: 200 OK +

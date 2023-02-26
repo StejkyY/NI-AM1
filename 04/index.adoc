@@ -1,0 +1,9 @@
+Aplikace byla otestována pomocí klientské aplikace. +
+ +
+Ve složce "server" se nachází zdrojové soubory k serverové aplikaci +
+Ve složce "client" se nachází zdrojové soubory ke klientské aplikaci. +
+ +
+Klientská aplikace spustí následující scénář: Vypsání plateb, Přidání nové platby, +
+vypsání plateb +
+ +
+Konzolový výpis scénáře z klientské aplikace je ve složce "results". +

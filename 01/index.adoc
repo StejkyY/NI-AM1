@@ -1,0 +1,32 @@
+Used example was taken from task 1 descripition on courses. +
+ +
+curl -v -H "Content-type: text/plain" --data-binary @example.txt http://127.0.0.1:8080/transformation +
+ +
+*   Trying 127.0.0.1:8080... +
+* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0) +
+> POST /transformation HTTP/1.1 +
+> Host: 127.0.0.1:8080 +
+> User-Agent: curl/7.83.1 +
+> Accept: */* +
+> Content-type: text/plain +
+> Content-Length: 173 +
+> +
+* Mark bundle as not supporting multiuse +
+< HTTP/1.1 200 +
+< Content-Type: text/plain;charset=UTF-8 +
+< Content-Length: 115 +
+< Date: Sat, 08 Oct 2022 17:35:49 GMT +
+< +
+----
+{
+  id": "1",
+  "location": "Bohemian Switzerland",
+  "person": {
+    "name": "Jan",
+    "surname": "Novak"
+  }
+}
+----
+* Connection #0 to host 127.0.0.1 left intact +
+
+
